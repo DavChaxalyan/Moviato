@@ -1,0 +1,56 @@
+.title {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.signin {
+  font-size: 30px;
+}
+
+.inputs {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+}
+
+.usernameInput {
+  margin-bottom: 15px;
+}
+
+.forgotThePassword {
+  text-decoration: underline;
+  margin-left: 4px;
+  width: 270px;
+  font-size: 13px;
+  color: var(--primary-color);
+  user-select: none;
+  cursor: pointer;
+}
+.forgotThePassword:hover {
+  color: var(--primary-transparent);
+}
+
+.divider {
+  background-color: var(--gray-transparent-2);
+  height: 1px;
+  width: 362px;
+  margin-top: 24px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.createAccount {
+  font-size: 14px;
+}
+
+.errorText {
+  color: var(--error-color);
+  font-size: 14px;
+}

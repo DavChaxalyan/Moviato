@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.Films_Page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.genres_filter_section {
+  margin-top: 70px;
+  width: 100%;
+}
+.background_image {
+  height: 630px;
+  width: 100%;
+  background-image: url(./src/components/FilmsPage/imgs/background.jpg);
+  overflow: none;
+  opacity: 0.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+}
+.most_popular_films_section {
+  width: 100%;
+  max-width: var(--page-width);
+  padding: 0 20px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: -30px;
+  z-index: 1;
+}
+
+.most_popular_films {
+  width: 100%;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+}
+.most_popular_films_title {
+  width: 100%;
+}
+
+.most_popular_films h2 {
+  text-align: start;
+  font-size: var(--m-size);
+  font-weight: 500;
+}
+.footer_section {
+  margin-top: 50px;
+}
+
+.genres_filter_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+  width: 100%;
+  position: relative;
+}
+
+.filter_section {
+  width: 100%;
+  margin: 50px auto;
+}
+
+.filter_selections {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ul_genres {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.lis {
+  color: var(--text-color);
+  font-size: var(--large-med);
+  width: 120px;
+  height: 30px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+.container {
+  margin: 0 auto;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.ul_genres1,
+.ul_genres2,
+.ul_genres3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+.ul_genres1 .lis:nth-child(6) {
+  width: 130px;
+}
+
+.lis {
+  font-size: var(--large-med);
+  font-weight: 600;
+  border: 1px solid var(--text-color);
+  width: 120px;
+  height: 30px;
+}
+
+.bttns {
+  width: 1190px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.filter_selection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 50px;
+}
+.filter_selection select {
+  background-color: #3b3b3b;
+  font-size: var(--large-reg);
+  color: var(--text-color);
+  width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+}
+.select_option_category {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(./icons/down.png);
+  background-repeat: no-repeat;
+  background-position-x: 80%;
+  background-position-y: 20px;
+}
+.select_option_year {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(./icons/down.png);
+  background-repeat: no-repeat;
+  background-position-x: 75%;
+  background-position-y: 20px;
+}
+.select_option_county {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(./icons/down.png);
+  background-repeat: no-repeat;
+  background-position-x: 80%;
+  background-position-y: 20px;
+}
+
+.filter_selection select::-webkit-scrollbar {
+  width: 8px;
+}
+.filter_selection select::-webkit-scrollbar-track {
+  background-color: var(--sec-color);
+}
+.filter_selection select::-webkit-scrollbar-thumb {
+  background-color: var(--text-color);
+  border-radius: 50px;
+}
+.btn_apply,
+.btn_refresh {
+  cursor: pointer;
+  border: 1.4px solid var(--text-color);
+  color: var(--text-color);
+  width: 80px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+.lis:hover,
+.btn_refresh:hover,
+.btn_apply:hover {
+  background-color: var(--primary-color);
+  cursor: pointer;
+  color: var(--background);
+}
+.buttons_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.genres_filter_section {
+  position: relative;
+}
+
+.genres_choose_section {
+  width: 82%;
+  position: relative;
+  margin-top: 73px;
+}
+
+.most_popular_films_section {
+  position: relative;
+  margin-top: 10%;
+  z-index: 10;
+}
+
+.selectedGenre {
+  background-color: var(--primary-color);
+  color: var(--background);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 5px inset;
+}
+
+.nav_home_to_films {
+  display: flex;
+  justify-content: flex;
+  align-items: center;
+  height: 50px;
+}
+.nav_text {
+  font-size: var(--large-reg);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  line-height: 10px;
+}
+
+.nav_home_to_films p span:first-child {
+  color: var(--gray);
+}
+.arrow_right_icon {
+  cursor: auto;
+}
+.arrow_right_icon path {
+  fill: var(--gray-light);
+}
+
+.arrow_right_icon {
+  margin: 10px;
+}

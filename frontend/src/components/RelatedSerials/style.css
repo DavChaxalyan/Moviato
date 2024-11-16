@@ -1,0 +1,184 @@
+.main-div-relatedSerials {
+    margin-top: 50px;
+    & .swiper {
+      max-width: 1190px;
+    }
+  
+    .div-popular-title {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .itemm-div-popular {
+      width: 218px !important;
+      position: relative;
+      cursor: pointer;
+    }
+  
+    .swiper-button-prev {
+      color: white;
+      font-size: 25px;
+      }
+  
+    .swiper-button-next {
+      right: 30px;
+      color: white;
+    }
+  
+    .swiper-button-prev::after{
+      font-size: 25px;
+    }
+  
+    .swiper-button-next::after{
+      font-size: 25px;
+    }
+
+    .div-img-movie-related {
+      width: 100%;
+      height: 303px;
+      position: absolute;
+      top: 0px;
+      border-radius: 15px;
+      opacity: 0;
+      transition: 0.3s;
+      background-color: rgba(3, 1, 1, 0.464);
+    }
+  
+    .itemm-img-popular {
+      width: 218px;
+      height: 303px;
+      border-radius: 15px;
+      position: relative;
+    }
+    .itemm-img-popular:hover .div-img-movie-related{
+      opacity: 1;
+    }
+    
+    .icon_sav {
+      position: absolute;
+      top: 17px;
+      right: 17px;
+      z-index: 10;
+      display: none;
+    }
+
+    .icon_sav:hover {
+      path {
+        fill: var(--primary-light);
+      }
+    }
+
+    .icon_favorit:hover {
+      path {
+        fill: var(--primary-light);
+      }
+    }
+
+    .itemm-div-popular:hover {
+      .icon_favorit {
+        display: block;
+      }
+      .icon_sav {
+        display: block;
+      }
+      .div-img-movie-related{
+        opacity: 1;
+      }
+    }
+
+    .icon_favorit {
+      display: none;
+        position: absolute;
+        top: 17px;
+        left: 17px;
+    }
+
+    .icon_verySatis {
+        margin-left: 10px;
+        path {
+            fill: var(--primary-color);
+        }
+    }
+
+    .swipp {
+      width: 220px !important;
+      height: 363px;
+    }   
+  
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .item-button-popular {
+      background-color: #116D70;
+      border: none;
+      width: 95px;
+      height: 34px;
+      border-radius: 15px 15px 15px 15px;
+      position: absolute;
+      bottom: 50px;
+      left: 20px;
+      color: #F5F5F5;
+    }
+    
+    .item-title-popular {
+      position: absolute;
+      left: 22px;
+      bottom: 20px;
+      font-size: 20px;
+      color: #F5F5F5;
+    }
+
+    .div-status-rating {
+      width: 219px;
+      height: 21px;
+      display: flex;
+      align-items: center;
+      margin-top: 5px;
+      gap: 12px;
+    }
+
+    .related-movie-rating {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .div-title-movie-related {
+      width: 219px;
+      height: 21px;
+      margin-top: 10px;
+      padding-left: 7px;
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: var(--large-reg);
+    }
+  
+  }
+   
+  .myCartSwiper {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: linear-gradient(to right, rgba(0, 10, 21), rgba(0, 10, 21, 0));
+      width: 60px;
+      height: 303px;
+      z-index: 1;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: linear-gradient(to left, rgba(0, 10, 21), rgba(0, 10, 21, 0));
+      width: 60px;
+      height: 303px;
+      z-index: 3;
+    }
+  }

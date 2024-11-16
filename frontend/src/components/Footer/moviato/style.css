@@ -1,0 +1,21 @@
+.footerMoviaTo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.our_community a,
+.about_us a,
+.faq a {
+  color: #f5f5f5;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.references_moviato {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;
+}

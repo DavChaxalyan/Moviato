@@ -1,0 +1,45 @@
+.titleContainer {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.title {
+  line-height: 1.4;
+  font-size: 30px;
+}
+
+.inputContainer {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputField {
+  margin-bottom: 15px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.createAccount {
+  font-size: 14px;
+}
+
+.signin {
+  text-decoration: underline;
+  width: 270px;
+  font-size: 13px;
+  margin-left: 4px;
+  color: var(--primary-color);
+  user-select: none;
+  cursor: pointer;
+}
+.signin:hover {
+  color: var(--primary-transparent);
+}

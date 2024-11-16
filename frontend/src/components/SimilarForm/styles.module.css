@@ -1,0 +1,39 @@
+.movieTv_item {
+  max-width: 250px;
+  width: 100%;
+  transition: transform 0.3s;
+}
+
+.movieTv_item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  min-height: 322px;
+}
+
+.slide_movie_tv_wrapper {
+  max-width: 1440px;
+  width: 100%;
+}
+
+.slide_movie_tv_title {
+  margin-bottom: 30px;
+  color: var(--primary-color);
+}
+
+.movieTv_item h3 {
+  margin: 10px 0;
+  color: var(--sec-color);
+  font-size: 15px;
+}
+
+.SimilarItem {
+  margin-top: 40px;
+}
+
+.movieTv_item:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}

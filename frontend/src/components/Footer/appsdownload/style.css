@@ -1,0 +1,28 @@
+.footerDownloadApps {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.appStore button,
+.googlePlay button {
+  width: 203px;
+  height: 70px;
+  background-color: #8080804d;
+  border: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnGooglePlay img {
+  width: 171px;
+  height: 38px;
+}
+
+.btnAppStore img {
+  width: 147px;
+  height: 38px;
+}

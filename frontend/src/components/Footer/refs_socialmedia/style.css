@@ -1,0 +1,72 @@
+.refs_And_Social_Media_container {
+  margin-top: 40px;
+}
+
+.footer_top_line_2 {
+  background: rgb(2, 0, 36);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(102, 102, 102, 0.1) 0%,
+    rgba(102, 102, 102, 0.5) 50%,
+    rgba(102, 102, 102, 0.9) 100%
+  );
+}
+
+.bottomsection {
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.socialmedia {
+  height: 36px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.facebookicon,
+.instagramicon,
+.threadsicon,
+.twittericon {
+  border: 1px solid #f5f5f5;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.facebookicon path,
+.instagramicon path,
+.threadsicon path,
+.twittericon path {
+  fill: var(--gray-light);
+}
+
+.facebookicon svg,
+.instagramicon svg,
+.threadsicon svg,
+.twittericon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.moviatologo p b {
+  font-size: 2.25rem;
+  color: #22d1cc;
+}
+
+.moviatoinfo {
+  font-size: 0.875rem;
+  color: #808080;
+}
+
+.moviatoinfo p b:last-child {
+  color: #22d1cc;
+}

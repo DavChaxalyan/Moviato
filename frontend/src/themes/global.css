@@ -1,0 +1,74 @@
+:root {
+  --font-family: "Poppins", sans-serif;
+  --m-size: 36px;
+  --med-size: 32px;
+  --sb-size: 30px;
+  --reg-size: 20px;
+  --large-reg: 18px;
+  --large-med: 16px;
+  --small-reg: 14px;
+  --small-med: 13px;
+
+  --primary-color: rgba(34, 209, 204);
+  --background: rgba(0, 10, 21, 1);
+  --sec-color: rgba(128, 128, 128, 1);
+  --primary-dark: rgba(102, 177, 168, 1);
+  --primary-light: rgba(0, 255, 248, 1);
+  --text-color: rgba(245, 245, 245, 1);
+  --error-color: rgba(186, 0, 0, 1);
+
+  --gray: rgba(128, 128, 128, 1);
+  --gray-light: rgba(245, 245, 245, 1);
+  --primary-transparent: rgba(17, 109, 112, 0.5);
+  --primary-transparent-1: rgba(34, 209, 204, 0.3);
+  --black-transparent: rgba(0, 0, 0, 0.5);
+  --gray-transparent-1: rgba(128, 128, 128, 0.3);
+  --gray-transparent-2: rgba(128, 128, 128, 0.4);
+  --gray-transparent-3: rgba(255, 255, 255, 0.5);
+
+  --transition: all 0.3s linear;
+  --radius-big: 50px;
+  --radius-small: 15px;
+  --radius: 50px;
+  --page-width: 1230px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--large-reg);
+  line-height: 22px;
+  color: var(--text-color);
+  background-color: var(--background);
+  min-height: 100vh;
+}
+
+ul li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.main-container {
+  max-width: var(--page-width);
+  padding: 0 20px;
+  width: 100%;
+  margin: 0 auto;
+}

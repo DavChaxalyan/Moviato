@@ -1,0 +1,119 @@
+.BlogFormItem {
+    width: 1190px;
+    height: auto;
+    transition: .3s;
+    /* padding: 50px 0; */
+    margin-top: 100px;
+    position: relative;
+}
+
+.BlogFormItem p {
+    color: #F5F5F5;
+}
+
+
+.BlogFormItem .swiper-slide {
+    color: #ffffff;
+    position: relative;
+}
+
+/* .BlogFormItem .swiper {
+    margin-top: 50px;
+    overflow-x: clip !important;
+    overflow: visible;
+} */
+
+
+.BlogFormItem .swiper-button-prev {
+    cursor: pointer;
+    color: white !important;
+}
+
+.BlogFormItem .swiper-button-next {
+    cursor: pointer;
+    color: white !important;
+}
+
+.BlogFormItem .swiper-button-prev:after {
+    font-size: 25px;
+}
+
+.BlogFormItem .swiper-button-next:after {
+    font-size: 25px;
+}
+
+
+.BlogFormText {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.BlogFormText p {
+    color: #808080;
+    margin-top: 10px;
+}
+
+.BlogFormItem .swiper-slide {
+    width: 482px !important;
+    position: relative;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.BlogFormItem .swiper-slide span {
+    position: absolute;
+    right: 10px;
+    bottom: 59px;
+    font-size: 13px;
+}
+
+.PlayVideoItem {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.581);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+    opacity: 0;
+}
+
+.ImgDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.BlogFormItem .swiper-slide:hover .PlayVideoItem {
+    opacity: 1;
+}
+
+.BlogFormItem .swiper-button-disabled{
+    opacity: 0 !important;
+}
+
+.playIcon path{
+    transition: .2s;
+}
+
+.PlayVideoItem:hover .playIcon path{
+    fill: #22D1CC;
+}
+
+.my-Swiper {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: linear-gradient(to left, rgba(0, 10, 21), rgba(0, 10, 21, 0));
+      width: 60px;
+      height: 100%;
+      z-index: 3;
+    }
+  }

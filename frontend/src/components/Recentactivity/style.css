@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.Recentactivity {
+  margin: 30px;
+  width: 1190px;
+  height: 484px;
+  color: #f5f5f5;
+  margin-top: 50px;
+}
+
+.section_one_title {
+  width: 270px;
+  height: 54px;
+  margin-bottom: 50px;
+}
+
+.section_one_title h1 {
+  font-size: var(--m-size);
+  font-weight: 500;
+  color: #f5f5f5;
+}
+
+.section_two_info,
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.star_road img {
+  width: 204px;
+  height: 137px;
+}
+
+.description {
+  width: 613px;
+  height: 110px;
+}
+
+.tracking_journey {
+  margin-top: 20px;
+}
+
+.informatio_for_sign_in p,
+.tracking_journey p {
+  font-size: var(--sb-size);
+  font-weight: 600;
+  color: #f5f5f5;
+}
+
+.tracking_journey span {
+  color: #22d1cc;
+}
+
+.section_three_sign_in {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.sign_in_button {
+  height: 90px;
+  width: 220px;
+  border: 1px solid rgba(34, 209, 204, 1);
+  border-radius: 50px;
+  background-color: rgba(0, 10, 21, 1);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  transition: width 1s ease;
+  cursor: pointer;
+}
+
+.magic_button {
+  width: 72px;
+  height: 72px;
+  background-color: transparent;
+  border: 0.5px solid var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.sign_in_button:hover .magic_button {
+  box-shadow: var(--primary-color) 0px 0px 5px inset,
+    var(--primary-color) 0px 0px 15px;
+  border: 1px solid var(--primary-color);
+}
+
+.magic_button button {
+  font-size: 1.875rem;
+  font-weight: 400;
+  color: var(--primary-light);
+}
+
+.sign_btn button {
+  font-size: 1.4rem;
+  border: none;
+  background-color: transparent;
+  color: #f5f5f5;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button_M {
+  color: rgba(0, 255, 248, 1);
+  font-size: 30px;
+  font-weight: 400;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.sign_btn {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-right: 20px;
+}
+
+.shrunk {
+  width: 94px;
+}
+
+.magic_button.shrunk {
+  transform: translate(-50%, -50%) translate(45px, 110px);
+}
+
+.sign_in_button_div.shrunk .sign_btn {
+  display: none;
+}
+
+/* ////////////////////////////////////////////////// */
+
+.content_anim_wrapper::before {
+  animation: rotateShadow 3s infinite linear;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: var(--primary-color) 0px 5px 10px;
+}
+
+@keyframes rotateShadow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.magic_button:hover .content_anim_wrapper::before {
+  animation-play-state: paused;
+}

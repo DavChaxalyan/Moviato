@@ -1,0 +1,55 @@
+.itemActorsPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+  padding-top: 20px;
+}
+
+.AbouteActors {
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+
+.itemActors {
+  display: grid;
+  grid-template-columns: 250px auto;
+  align-items: start;
+  gap: 40px;
+  margin-bottom: 55px;
+}
+
+.textItemActors h2 {
+  font-size: 22px;
+  color: var(--primary-color);
+}
+
+.textItemActors h3 {
+  margin: 15px 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+
+.textItemActors p {
+  overflow: hidden;
+  font-size: 17px;
+  font-family: var(--font-family);
+  font-family: var(--font-family);
+}
+
+.imgItemActors {
+  border-radius: 50%;
+  overflow: hidden;
+  max-width: 250px;
+  width: 100%;
+}
+
+.imgItemActors img {
+  object-fit: cover;
+  display: block;
+  width: 250px;
+  height: 250px;
+}
+

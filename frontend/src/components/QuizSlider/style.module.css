@@ -1,0 +1,92 @@
+.quizSwiper {
+  margin-bottom: 100px;
+  position: relative;
+  border-radius: var(--radius-small);
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%); */
+    background: linear-gradient(to right, rgba(0, 10, 21), rgba(0, 10, 21, 0));
+    width: 60px;
+    height: 100%;
+    z-index: 1;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%); */
+    background: linear-gradient(to left, rgba(0, 10, 21), rgba(0, 10, 21, 0));
+    width: 60px;
+    height: 100%;
+    z-index: 3;
+  }
+  --swiper-navigation-color: #fff;
+}
+.quizSwiper > .swiper-button-next {
+  color: var(--text-color) !important;
+}
+.quizCard {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-small);
+  background-color: var(--primary-transparent);
+  max-width: 247px;
+  color: inherit;
+  &:hover .quizHead p {
+    opacity: 1;
+  }
+}
+.quizBody {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 16px 25px;
+  text-align: left;
+
+  h2 {
+    font-size: var(--large-reg);
+    line-height: 27px;
+    font-weight: 400;
+  }
+  p {
+    font-size: var(--small-reg);
+    line-height: 27px;
+  }
+}
+.quizHead {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: var(--radius-small);
+    border-top-right-radius: var(--radius-small);
+    max-height: 226px;
+    height: 100%;
+  }
+  p {
+    font-size: var(--reg-size);
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-transparent);
+    color: var(--text-color);
+    opacity: 0;
+    transition: var(--transition);
+    border-top-left-radius: var(--radius-small);
+    border-top-right-radius: var(--radius-small);
+  }
+}

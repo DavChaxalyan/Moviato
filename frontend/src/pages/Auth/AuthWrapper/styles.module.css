@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(./../../../assets/images/backgrounds/moviato_sign_in_background.png);
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 10, 21, 0.8);
+  backdrop-filter: blur(10px);
+  width: 600px;
+  height: 710px;
+}

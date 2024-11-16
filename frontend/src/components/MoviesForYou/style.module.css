@@ -1,0 +1,143 @@
+.MoviesForYou {
+  max-width: 100%;
+  /* max-height: 70%; */
+  padding: 5px 15px;
+  background-color: #000a15;
+  /* margin: -3px; */
+  z-index: 99;
+}
+
+.movies_for_you_title {
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movies_for_you_title h2 {
+  text-align: center;
+  font-size: var(--med-size);
+}
+
+.movie_imgs {
+  margin-top: 20px;
+  /* display: flex; */
+  /* width: 218px; */
+  /* height: 300px; */
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  display: inline-block;
+}
+.movie_imgs img {
+  cursor: pointer;
+  border-radius: 15px;
+  transition: opacity 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 16px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.overlay.left {
+  left: 0;
+}
+
+.overlay.right {
+  right: 0;
+}
+
+.movie_imgs:hover .overlay {
+  opacity: 1;
+}
+
+.movie_imgs:hover .overlay {
+  opacity: 0.8;
+}
+.svg_icon {
+  cursor: pointer;
+}
+
+.svg_icon path {
+  fill: var(--text-color);
+}
+
+.movie_imgs.clicked .svg_icon path {
+  fill: red;
+}
+
+.svg_icon:hover path {
+  fill: var(--primary-color);
+}
+.svg_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.movies_for_you_list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.movies_names h4 {
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: var(--large-reg);
+}
+.movie_rating {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.movie_star_icon path {
+  fill: var(--primary-color);
+}
+.movie_star_icon svg {
+  fill: var(--primary-color);
+}
+.movie_rating_scale {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.movie_rate_value {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.btn_skip {
+  margin-top: 10px;
+}
+
+.button_skip {
+  color: var(--text-color);
+  font-size: var(--large-reg);
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.button_skip:hover {
+  color: var(--primary-color);
+}
+
+.button_skip:active {
+  color: var(--primary-color);
+  opacity: 0.35;
+}

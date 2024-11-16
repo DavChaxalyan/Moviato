@@ -1,0 +1,27 @@
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  background: none;
+  border: none;
+}
+
+.slick-prev,
+.slick-prev:before {
+  top: 40%;
+  left: 22px;
+  width: 16px;
+  height: 28px;
+  z-index: 3;
+
+  content: url("./icons/left.png");
+}
+
+.slick-next,
+.slick-next:before {
+  top: 40%;
+  right: 22px;
+  width: 16px;
+  height: 28px;
+  z-index: 3;
+  content: url("./icons/right.png");
+}

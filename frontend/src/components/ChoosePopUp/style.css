@@ -1,0 +1,263 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.ChoosePopUp_container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.choosePopUp_title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.choosePopUp_title h1 {
+  font-size: var(--med-size);
+  font-weight: 500;
+  color: var(--gray-light);
+}
+
+.choosePopUp_Levels {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  text-align: center;
+}
+
+.level_3,
+.level_1 {
+  border-radius: 50px;
+  width: 50px;
+  height: 6px;
+  background-color: var(--primary-transparent-1);
+}
+
+.level_2 {
+  width: 100px;
+  height: 6px;
+  border-radius: 50px;
+  background-color: var(--primary-color);
+}
+
+.choosePopUp_FilmsList {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.choosePopUp_FilmsList ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.choosePopUp_FilmsList ul li {
+  list-style-type: none;
+  flex: 0 10% 200px;
+}
+
+.film_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.film_container_image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.choosePopUp_FilmsList ul li img {
+  width: 200px;
+  border-radius: 15px;
+  display: block;
+}
+
+.film_rate_star {
+  color: var(--rate-star-color);
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 4px;
+  align-self: flex-start;
+}
+
+.film_rate_value {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: var(--small-reg);
+}
+
+.film_container_titleOfFilm h3 {
+  font-size: var(--reg-size);
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.skip_and_next_btns {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button_next,
+.button_skip {
+  color: var(--text-color);
+  font-size: var(--large-reg);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button_skip {
+  text-decoration: underline;
+}
+
+.button_skip:hover,
+.button_next:hover {
+  color: var(--primary-color);
+}
+.button_skip:active,
+.button_next:active {
+  color: var(--primary-darker);
+}
+
+.film_container_image:hover img {
+  filter: brightness(35%);
+  opacity: 0.4;
+  transition: filter 0.7s ease;
+}
+
+.film_additional_info {
+  position: absolute;
+  top: 0px;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.film_container_image:hover .film_additional_info {
+  opacity: 1;
+}
+.film_container_image:hover .btn_watched,
+.btn_not_interested {
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid white;
+}
+
+.btn_watched {
+  color: var(--text-color);
+  font-size: var(--large-med);
+  font-weight: 500;
+}
+.btn_not_interested {
+  background-color: var(--background);
+  color: var(--text-color);
+  font-size: var(--large-med);
+  font-weight: 400;
+}
+
+.btn_watched.active,
+.btn_not_interested.active {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 5px inset;
+  background-color: var(--primary-color);
+}
+
+.btn_next path {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--text-color);
+}
+
+.btn_next svg {
+  width: 5px;
+  height: 9px;
+}
+
+.btn_next:hover path {
+  fill: var(--primary-color);
+}
+.btn_next path:hover {
+  fill: var(--primary-color);
+}
+
+.button_next:active path {
+  fill: var(--primary-darker);
+}
+
+.btn_watched:hover,
+.btn_not_interested:hover {
+  color: var(--background);
+  background-color: var(--primary-light);
+}
+
+.btn_watched:active,
+.btn_not_interested:active {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 5px inset;
+}
+
+.btn_watched.active,
+.btn_not_interested.active {
+  color: var(--background);
+}
+
+.film_rate_star p path {
+  fill: var(--primary-color);
+}
+
+.overlay-static {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 18%;
+  padding: 20px;
+  background-color: transparent;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.brightness-adjusted {
+  filter: brightness(35%);
+}
+
+.film_additional_info button,
+.overlay-static button {
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid white;
+}

@@ -1,0 +1,139 @@
+.articleWrap {
+  display: flex;
+  align-items: center;
+  gap:25px;
+}
+.article {
+  max-width: 380px;
+  width: 100%;
+  border:1px solid transparent;
+  transition: var(--transition);
+  border-radius: var(--radius-small);
+}
+.articles {
+  width: 1190px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  padding-bottom: 30px;
+}
+
+.articles span {
+  color: white;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: 0.2s;
+}
+
+.articles span:hover {
+  color: #22d1cc;
+}
+
+.article:hover {
+  border:1px solid var(--gray-transparent-3)
+}
+.article:hover .articleHead img{
+  transform: scale(1.1);
+}
+.articleHead {
+  position: relative;
+  border-radius:  var(--radius-small);
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    font-size: 0;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    border-radius:  var(--radius-small);
+    transition: var(--transition);
+  }
+}
+.articleMesTime {
+  position: absolute;
+  z-index: 1;
+  bottom: 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 23px;
+}
+
+.articleIcon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--small-med);
+  font-weight: 400;
+  line-height: 20px;
+
+}
+.articleBody {
+  margin-top: 24px;
+  padding: 0 12px;
+  h2 {
+    color: var(--primary-color);
+    font-size: var(--large-med);
+    line-height: 24px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  p {
+    line-height: 30px;
+    font-weight: 600;
+    font-size: var(--reg-size);
+  }
+}
+.articleFooter {
+  margin-top: 20px;
+  padding: 0 12px;
+  padding-bottom: 16px;
+  h3 {
+    font-size: var(--large-reg);
+    line-height: 27px;
+    font-weight: 400;
+  }
+}
+
+.articleNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  button {
+    background-color: var(--primary-color);
+    color: var(--background);
+    font-size: var(--large-med);
+    border-radius: var(--radius-big);
+    padding: 16px 32px;
+    text-align: center;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+    &:hover {
+      background-color: var(--primary-light);
+    }
+    &:active {
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 5px inset;
+    }
+  }
+}
+.articleUser {
+  display: flex;
+  gap:12px;
+  align-items: center;
+  margin-top: 16px;
+  h6 {
+    font-size: var(--small-reg);
+    line-height: 21px;
+    font-weight: 400;
+  }
+  p {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--gray);
+  }
+}

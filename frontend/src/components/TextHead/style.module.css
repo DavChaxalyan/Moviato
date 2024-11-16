@@ -1,0 +1,32 @@
+.textWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 35px 0;
+
+}
+.textTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  h2 {
+    color: var(--text-color);
+    font-size: var(--m-size);
+    line-height: 40px;
+    font-weight: 500;
+  }
+  p {
+    color: var(--sec-color);
+    font-size: var(--large-size);
+    line-height: 20px;
+  }
+
+}
+
+.textUrl {
+  display: block;
+  color: var(--text-color);
+  font-size: var(--large-med);
+  line-height: 20px;
+  text-decoration: underline;
+}

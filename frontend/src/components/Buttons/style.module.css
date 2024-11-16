@@ -1,0 +1,18 @@
+.primaryButton {
+  margin-top: 32px;
+  margin-bottom: 6px;
+  width: 270px;
+  height: 56px;
+  background-color: var(--primary-color);
+  border-radius: 50px;
+  font-size: var(--large-med);
+  cursor: pointer;
+}
+
+.primaryButton:hover {
+  background-color: var(--primary-light);
+}
+
+.primaryButton:active {
+  box-shadow: var(--background) 0px 2px 1px inset;
+}

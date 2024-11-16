@@ -1,0 +1,5 @@
+.swiperVerticalSlide.swiper-slide-active {
+  img {
+    box-shadow: 0px 0px 20px 3px var(--primary-color);
+  }
+}

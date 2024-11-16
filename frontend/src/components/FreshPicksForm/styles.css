@@ -1,0 +1,133 @@
+.ItemFreshPicks {
+  width: 100%;
+  height: auto;
+  transition: 0.3s;
+  padding: 100px 0;
+  position: relative;
+}
+
+
+.ItemFreshPicks p {
+  color: #808080;
+}
+
+.ItemFreshPicks img {
+  width: 218px;
+  /* height: 303px; */
+  cursor: pointer;
+  border-radius: 18px;
+  transition: 0.5s;
+}
+
+.ItemFreshPicks img:hover {
+  transform: translate(0px, -44px);
+  box-shadow: 0px 0px 36px 0px #ffffff3d;
+}
+
+.swiper-slide {
+  color: #ffffff;
+  position: relative;
+}
+
+.swiper {
+  margin-top: 50px;
+  overflow-x: clip !important;
+  overflow: visible;
+}
+
+.swiper-wrapper {
+  transform: translate3d(-148px, 0px, 0px);
+  transition-duration: 0ms;
+  transition-delay: 0ms;
+}
+
+.swiper-button-prev {
+  cursor: pointer;
+  color: white !important;
+}
+
+.swiper-button-next {
+  cursor: pointer;
+  color: white !important;
+}
+
+.swiper-button-prev:after {
+  font-size: 25px;
+}
+
+.swiper-button-next:after {
+  font-size: 25px;
+}
+
+.ItemFreshText {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.ItemFreshText span {
+  color: white;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: 0.2s;
+}
+
+.ItemFreshText span:hover {
+  color: #22d1cc;
+}
+
+.itemImgText p {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--small-reg);
+  font-family: var(--font-family);
+  left: 35%;
+  bottom: 20px;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.itemImgText span {
+  position: absolute;
+  width: 180px;
+  height: 14px;
+  background-color: #0000009e;
+  bottom: 0;
+  left: 10%;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.ItemFreshPicks img:hover + .itemImgText p {
+  opacity: 1;
+}
+
+.ItemFreshPicks img:hover + .itemImgText span {
+  opacity: 1;
+}
+
+.mySwiper {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(to right, rgba(0, 10, 21), rgba(0, 10, 21, 0));
+    width: 60px;
+    height: 100%;
+    z-index: 1;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: linear-gradient(to left, rgba(0, 10, 21), rgba(0, 10, 21, 0));
+    width: 60px;
+    height: 100%;
+    z-index: 3;
+  }
+}
