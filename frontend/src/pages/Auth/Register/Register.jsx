@@ -7,6 +7,7 @@ import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import { LOGIN, HOME, FORGOT_PASSWORD } from "../../../router/route-path";
 import styles from "./style.module.css";
 import { emailPattern } from "../../../constants/regex";
+import { registerUser } from "../../../api/auth/register";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Register = () => {
   const [passwordValue, setPasswordValue] = useState("");
   const [reenterPasswordValue, setReenterPasswordValue] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     let isError = false;
 
     if (!emailPattern.test(emailValue)) {
@@ -49,8 +50,18 @@ const Register = () => {
       return;
     }
 
-    localStorage.setItem("isLoggedInUser", true);
-    navigate(HOME);
+    try {
+      const response = await registerUser({
+        username: usernameValue,
+        email: emailValue,
+        password: passwordValue,
+      });
+      
+      localStorage.setItem("isLoggedInUser", true);
+      navigate(HOME);
+    } catch (error) {
+      console.error("Ошибка регистрации:", error.message);
+    }
   };
 
   const handleUsernameChange = (event) => {
