@@ -7,6 +7,8 @@ import Input from "../../../components/Input";
 import { FORGOT_PASSWORD, HOME, REGISTER } from "../../../router/route-path";
 import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import Logo from "../../../components/Logo/Logo";
+import { loginUser } from "../../../api/auth/login";
+import { getCurrentUser } from "../../../api/auth/profile";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,16 +19,29 @@ const Login = () => {
   const [usernameFocused, setUsernameFocused] = useState(false);
   const [passwordFocused, setPasswordFocused] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!emailPattern.test(usernameValue)) {
       return setError(true);
     }
     if (!passwordValue) {
       return setError(true);
     }
+    
     setError(false);
-    localStorage.setItem("isLoggedInUser", true);
-    navigate(HOME);
+
+    try {
+      const response = await loginUser({ email: usernameValue, password: passwordValue });
+      if (response) {
+        console.log(response);
+        
+        localStorage.setItem("isLoggedInUser", true); 
+        navigate(HOME);
+        getCurrentUser()
+      }
+    } catch (err) {
+      setError(true); 
+      console.error("Ошибка при логине:", err);
+    }
   };
 
   const handleUsernameChange = (event) => {
@@ -51,7 +66,7 @@ const Login = () => {
         <Input
           inputClassName={styles.usernameInput}
           value={usernameValue}
-          title="Username"
+          title="Email"
           onChange={handleUsernameChange}
           error={error}
           setError={setError}
