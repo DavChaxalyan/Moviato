@@ -203,18 +203,6 @@ const HeaderForm = () => {
                         Watchlist
                       </p>
                     </div>
-                    <div onClick={() => navigate("/list")}>
-                      <MdOutlineLocalActivity />
-                      <p style={{ fontSize: "14px" }} className="item-profile-row">
-                        My Activity
-                      </p>
-                    </div>
-                    <div onClick={() => navigate("/list")}>
-                      <SvgIcon height={15} iconName={"icon_list"} />
-                      <p style={{ fontSize: "14px" }} className="item-profile-row">
-                        My Lists
-                      </p>
-                    </div>
                   </div>
                 )}
                 <div>
@@ -222,6 +210,7 @@ const HeaderForm = () => {
                     onClick={() => {
                       if (isLoggedIn) {
                         localStorage.removeItem("isLoggedInUser");
+                        localStorage.removeItem("token");
                         return navigate(LOGIN);
                       } else {
                         return navigate(LOGIN);

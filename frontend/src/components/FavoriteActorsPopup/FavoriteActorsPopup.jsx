@@ -1,39 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { fetchActorsData } from "../../helpers/helper";
+import React, { useState } from "react";
 import Loading from "../Loading";
 import styles from "./style.module.css";
 import { API_KEY, BASE_URL, IMAGE_BASE_URL, POSTER_SIZE_500 } from "../../config/config";
 
-const FavoriteActorsPopup = ({ onSuggest,movieActors,setInterests,onNext }) => {
-  console.log("asdasd",movieActors)
+const FavoriteActorsPopup = ({ movieActors, setInterests, onNext }) => {
   const [actors, setActors] = useState(movieActors);
   const [selected, setSelected] = useState([]);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     // https://www.themoviedb.org/person/4491-jennifer-aniston
-  //     const actorsIds = ["72129", "6193", "4491", "116", "234352", "7399", "2037", "4937"];
-  //     const actorData = await fetchActorsData(actorsIds);
-  //     setActors(actorData);
-  //   })();
-  // }, []);
 
   function getRandomObjectsWithId(data, count) {
     const ids = [];
     const suggestMovies = [];
-  
+
     while (ids.length < count) {
       const randomIndex = Math.floor(Math.random() * data.length);
       const randomPerson = data[randomIndex];
       const randomActorIndex = Math.floor(Math.random() * randomPerson.length);
       const randomObject = randomPerson[randomActorIndex];
-      
+
       if (!ids.includes(randomObject.id)) {
         ids.push(randomObject.id);
         suggestMovies.push(randomObject);
       }
     }
-  
+
     return { id: ids, suggestMovies };
   }
   const toggleSelected = (actorsId) => {
@@ -47,22 +36,23 @@ const FavoriteActorsPopup = ({ onSuggest,movieActors,setInterests,onNext }) => {
   };
 
   const handleMovie = async () => {
-    const allMovieDetails = await Promise.all(selected.map(async id => {
-      const response = await fetch(`${BASE_URL}/person/${id}/movie_credits?api_key=${API_KEY}`);
+    const allMovieDetails = await Promise.all(
+      selected.map(async (id) => {
+        const response = await fetch(`${BASE_URL}/person/${id}/movie_credits?api_key=${API_KEY}`);
         const data = await response.json();
 
-        return [...data.cast,...data.crew]
-    }));
+        return [...data.cast, ...data.crew];
+      })
+    );
     const randomIds = getRandomObjectsWithId(allMovieDetails, 8);
-    setInterests(prev=> {
+    setInterests((prev) => {
       return {
         ...prev,
-        suggestMovies:randomIds.suggestMovies
-      }
-    })
-    onNext()
-    console.log(randomIds)
-  }
+        suggestMovies: randomIds.suggestMovies,
+      };
+    });
+    onNext();
+  };
 
   if (!actors) return <Loading />;
 
@@ -80,7 +70,7 @@ const FavoriteActorsPopup = ({ onSuggest,movieActors,setInterests,onNext }) => {
         {actors?.map((actor) => (
           <div key={actor.id} className={styles.favorite_actor} onClick={() => toggleSelected(actor.id)}>
             <div className={`${styles.image_container} ${selected.includes(actor.id) && styles.selected}`}>
-              <img  src={`${IMAGE_BASE_URL}${POSTER_SIZE_500}${actor.profile_path}`} alt={actor.name} />
+              <img src={`${IMAGE_BASE_URL}${POSTER_SIZE_500}${actor.profile_path}`} alt={actor.name} />
             </div>
             <span className={`${styles.actors_name} ${selected.includes(actor.id) && styles.selected_actors_name}`}>
               {actor.name}

@@ -59,6 +59,7 @@ const Register = () => {
       
       localStorage.setItem("isLoggedInUser", true);
       navigate(HOME);
+      window.location.reload();
     } catch (error) {
       console.error("Ошибка регистрации:", error.message);
     }

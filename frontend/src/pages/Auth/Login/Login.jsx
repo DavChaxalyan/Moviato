@@ -32,10 +32,10 @@ const Login = () => {
     try {
       const response = await loginUser({ email: usernameValue, password: passwordValue });
       if (response) {
-        console.log(response);
         
         localStorage.setItem("isLoggedInUser", true); 
         navigate(HOME);
+        window.location.reload();
         getCurrentUser()
       }
     } catch (err) {

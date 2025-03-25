@@ -12,7 +12,6 @@ const CommentSection = ({ id }) => {
           const response = await fetch(`${BASE_URL}movie/${id}/reviews?api_key=${API_KEY}`);
           const  { results }  = await response.json();
           setReviews(results);
-          console.log(results);
         } catch (error) {
           console.log("error :", error);
         }

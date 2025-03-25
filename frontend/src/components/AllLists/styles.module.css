@@ -89,8 +89,7 @@
   align-items: center;
   color: var(--primary-color);
   font-size: 14px;
-  width: 51px;
-  justify-content: space-between;
+  gap: 10px;
   margin-top: 6px;
   margin-bottom: 10px;
 }
@@ -117,4 +116,35 @@
 
 .showMore span:hover {
   color: #22d1cc;
+}
+
+.emptyState {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.emptyState h2 {
+  font-size: 24px;
+  color: #fff;
+}
+
+.emptyState p {
+  font-size: 16px;
+  color: #aaa;
+  margin: 10px 0;
+}
+
+.emptyState button {
+  background-color: #22d1cc;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.emptyState button:hover {
+  background-color: #1aa7a3;
 }
