@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import classes from "./styles.module.css";
-import HeaderForm from "../HeaderForm/HeaderForm";
 import SvgIcon from "../SvgIcon/SvgIcon";
-
-import watchlistData from "../../assets/data/watchlistData/watchlistData";
-import favoritesData from "../../assets/data/favoritesData/favoritesData";
-import listsData from "../../assets/data/listsData/listsData";
-import activityData from "../../assets/data/activityData/activityData";
+import { POSTER_SIZE_500, IMAGE_BASE_URL } from "../../config/config";
+import useWatchlistsData from "../../assets/data/watchlistData/watchlistData";
+import useFavoritesData from "../../assets/data/favoritesData/favoritesData";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 const AllLists = () => {
   // Defined button names
-  const buttonName = ["Favorites", "Watchlist", "My Lists", "My Activity"];
+  const buttonName = ["Favorites", "Watchlist"];
+  const favoritesData = useFavoritesData();
+  const navigate = useNavigate();
+  const watchlistData = useWatchlistsData();
 
   // Defined state to track active button and list view
   const id = useParams();
@@ -28,16 +29,10 @@ const AllLists = () => {
   let categoryData;
   switch (activeButton) {
     case 0:
-      categoryData = watchlistData;
-      break;
-    case 1:
       categoryData = favoritesData;
       break;
-    case 2:
-      categoryData = showList ? listsData : [];
-      break;
-    case 3:
-      categoryData = activityData;
+    case 1:
+      categoryData = watchlistData;
       break;
     default:
       categoryData = [];
@@ -72,25 +67,39 @@ const AllLists = () => {
         <p>{buttonName[activeButton]}</p>
       </div>
       <div className={classes.categoryCards}>
-        {categoryData.map((movie, index) => (
-          <div className={classes.categoryImg} key={index}>
-            <div className={classes.categoryImgChild}>
-              <div className={classes.categoryShadowItem}></div>
-              <img src={movie.img} alt={movie.title} />
+        {categoryData.length > 0 ? (
+          categoryData.map((movie, index) => (
+            <div className={classes.categoryImg} key={index}>
+              <div
+                className={classes.categoryImgChild}
+                onClick={() => {
+                  navigate("/movie/" + movie?.movieData?.id);
+                }}
+              >
+                <div className={classes.categoryShadowItem}></div>
+                <img
+                  src={`${IMAGE_BASE_URL}${POSTER_SIZE_500}${movie?.movieData?.poster_path}`}
+                  alt={movie?.movieData?.original_title}
+                />
+              </div>
+              <span>
+                <SvgIcon iconName={CalculateSmile((Math.round(movie?.movieData?.vote_average * 10) / 10).toFixed(1))} />
+                {(Math.round(movie?.movieData?.vote_average * 10) / 10).toFixed(1)}
+              </span>
+              <p>
+                <b>{movie?.movieData?.original_title}</b>
+              </p>
             </div>
-            <span>
-              <SvgIcon iconName={CalculateSmile(movie.rating)} />
-              {movie.rating}
-            </span>
-            <p>
-              <b>{movie.title}</b>
-            </p>
+          ))
+        ) : (
+          <div className={classes.emptyState}>
+            <h2>Nothing found.</h2>
+            <p>It looks like you don't have any movies in this section yet. Add movies to your favorites or watchlist!</p>
+            <button onClick={() => navigate("/films")}>Search for movies.</button>
           </div>
-        ))}
+        )}
       </div>
-      <div className={classes.showMore}>
-        {/* <span>SHOW MORE</span> */}
-      </div>
+      <div className={classes.showMore}>{/* <span>SHOW MORE</span> */}</div>
     </div>
   );
 };

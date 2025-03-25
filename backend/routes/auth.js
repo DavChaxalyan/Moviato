@@ -8,8 +8,6 @@ const router = express.Router();
 router.post("/register", async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    console.log(username, email, password);
-    
 
     const existingUser = await User.findOne({ email });
     if (existingUser) return res.status(400).json({ message: "Email уже используется" });
@@ -19,9 +17,8 @@ router.post("/register", async (req, res) => {
 
     const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
-
-    res.status(201).json({ message: "Пользователь зарегистрирован" });
-    console.log("Пользователь зарегистрирован");
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
+    res.status(201).json({ message: "Пользователь зарегистрирован", token });
 
   } catch (error) {
     console.log("Ошибка сервера", error);
@@ -38,12 +35,10 @@ router.post("/login", async (req, res) => {
     if (!user) return res.status(400).json({ message: "Неверные учетные данные" });
     
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log(password, isMatch, user);
     if (!isMatch) return res.status(400).json({ message: "Неверные учетные данные" });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
-    console.log({message: "Вход выполнен", token, user: { id: user._id, username: user.username, email: user.email }});
     res.json({ message: "Вход выполнен", token, user: { id: user._id, username: user.username, email: user.email } });
   } catch (error) {
     console.log("Ошибка сервера", error);
@@ -61,7 +56,6 @@ router.get("/profile", async (req, res) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     
     const user = await User.findById(decoded.id);
-    console.log(token, decoded, user, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
     if (!user) return res.status(404).json({ message: "Пользователь не найден" });
 
     res.json(user); 

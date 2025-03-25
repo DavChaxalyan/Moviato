@@ -4,27 +4,24 @@ import styles from "./style.module.css";
 import { Link } from "react-router-dom";
 import SvgIcon from "../SvgIcon/SvgIcon";
 import Triller from "../Triller/Triller";
+import { addToFavorites, getFavorites } from "../../api/favorite/favorite";
+import { addToWatchlists, getWatchlists } from "../../api/watchlist/watchlist";
+import { useAppContext } from "../../context api/useAppContext";
+import { isFavoriteMovieUser } from "../../hooks/isFavoriteMovieUser";
+import { getTime } from "../../hooks/getTime";
+import { isWatchlistMovieUser } from "../../hooks/isWatchlistMovieUser";
 
-const getTime = (min) => {
-  const hours = Math.floor(min / 60);
-  const minutes = min % 60;
-  return `${hours} h ${minutes} min`;
-};
 const MovieBanner = ({ id, type = "movie", title = "harry" }) => {
+  const { watchlist, setWatchlists, favorites, setFavorites, loading } = useAppContext();
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [isWatchlist, setIsWatchlist] = useState(false);
+  const [userFavorites, setUserFavorites] = useState(favorites || []);
+  const [userWatchlists, setUserWatchlists] = useState(watchlist || []);
   const [date, setDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isShare, setIsShare] = useState(false);
-  const [isList, setIsList] = useState(false);
-  console.log('isList :', isList);
-  const [labelsList, setLabelsList] = useState(["Animations", "My Movies"]);
-  const [newList, setNewList] = useState("");
-  const [showNewList, setShowNewList] = useState(false);
-  const handleList = (e) => {
-    e.preventDefault();
-    setLabelsList([...labelsList, newList])
-    setNewList("")
-    setShowNewList(false);
-  };
+  const [message, setMessage] = useState("");
+
   const getMovieTvDate = async () => {
     try {
       const response = await fetch(`${BASE_URL}movie/${id}?api_key=${API_KEY}&page=${1}`);
@@ -34,6 +31,43 @@ const MovieBanner = ({ id, type = "movie", title = "harry" }) => {
       console.log("error :", error);
     }
   };
+
+  const handleAddToFavorites = async () => {
+    try {
+      const response = await addToFavorites(date);
+      setMessage(response.message);
+
+      const updatedFavorites = await getFavorites();
+      setUserFavorites(updatedFavorites);
+      setFavorites(updatedFavorites);
+      setIsFavorite(isFavoriteMovieUser(date?.id, updatedFavorites));
+    } catch (error) {
+      setMessage(error);
+    }
+  };
+
+  const handleAddToWatchlists = async () => {
+    try {
+      const response = await addToWatchlists(date);
+      setMessage(response.message);
+
+      const updatedWatchlists = await getWatchlists();
+      setUserWatchlists(updatedWatchlists); 
+      setWatchlists(updatedWatchlists);
+      setIsWatchlist(isWatchlistMovieUser(date?.id, updatedWatchlists));
+    } catch (error) {
+      setMessage(error);
+    }
+  };
+
+  useEffect(() => {
+    setIsFavorite(isFavoriteMovieUser(date?.id, userFavorites));
+  }, [date?.id, userFavorites]);
+
+  useEffect(() => {
+    setIsWatchlist(isWatchlistMovieUser(date?.id, userWatchlists));
+    console.log(isWatchlist, userWatchlists, "watchlistssssssssssssssssssssssssssssssssss");
+  }, [date?.id, userWatchlists]);
 
   useEffect(() => {
     if (id) {
@@ -97,10 +131,23 @@ const MovieBanner = ({ id, type = "movie", title = "harry" }) => {
               Watch Trailer
             </button>
             {isOpen && <Triller id={id} onClose={() => setIsOpen(false)} />}
-            <button>
-              <SvgIcon iconName={"icon_save"} width={24} height={24} />
+            <button onClick={handleAddToWatchlists}>
+              {isWatchlistMovieUser(date?.id, watchlist) ? "yesssss" : <SvgIcon iconName={"icon_save"} width={24} height={24} />}
             </button>
-              <button >
+            <button onClick={handleAddToFavorites}>
+              {isFavoriteMovieUser(date?.id, favorites) ? (
+                <svg
+                  className="w-6 h-6 text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="rgba(34, 209, 204)"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z" />
+                </svg>
+              ) : (
                 <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none">
                   <mask
                     id="mask0_3044_1152"
@@ -120,48 +167,8 @@ const MovieBanner = ({ id, type = "movie", title = "harry" }) => {
                     />
                   </g>
                 </svg>
-              </button>
-              
-            <div>
-            <button onClick={()=> setIsList(prev=> !prev)}>
-              <SvgIcon iconName={"icon_list"} width={24} height={20} />
+              )}
             </button>
-            {isList && (<div className={styles.listWrap}>
-                <form action="" className={styles.listForm}>
-                  {labelsList.map((item, idx) => {
-                    return (
-                      <label key={idx}>
-                        <input type="checkbox" />
-                        {item}
-                      </label>
-                    );
-                  })}
-                </form>
-
-                {!showNewList ? (
-                  <div onClick={() => setShowNewList(true)} className={styles.createList}>
-                    <SvgIcon iconName={"icon_plus"} />
-                    Create New List
-                  </div>
-                ) : (
-                  <div>
-                    <form className={styles.createListForm} action="" onSubmit={(e) => handleList(e)}>
-                      <label htmlFor="">Name</label>
-                      <input
-                        type="text"
-                        name="new-list"
-                        placeholder="Enter List Title"
-                        id=""
-                        value={newList}
-                        onChange={(e) => setNewList(e.target.value)}
-                      />
-                      <span>{newList.length}/150</span>
-                      <button type="submit">Create</button>
-                    </form>
-                  </div>
-                )}
-              </div>)}
-            </div>
             <button onClick={() => setIsShare((prev) => !prev)}>
               <SvgIcon iconName={"icon_share"} width={20} height={20} />
 

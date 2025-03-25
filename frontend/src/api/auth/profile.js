@@ -16,8 +16,6 @@ export const getCurrentUser = async () => {
       },
     });
 
-    console.log("Текущий пользователь:", response.data); 
-
   } catch (error) {
     console.error("Ошибка при получении данных пользователя", error);
   }
