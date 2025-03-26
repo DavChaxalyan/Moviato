@@ -12,11 +12,7 @@ import { getTime } from "../../hooks/getTime";
 import { isWatchlistMovieUser } from "../../hooks/isWatchlistMovieUser";
 
 const MovieBanner = ({ id, type = "movie", title = "harry" }) => {
-  const { watchlist, setWatchlists, favorites, setFavorites, loading } = useAppContext();
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [isWatchlist, setIsWatchlist] = useState(false);
-  const [userFavorites, setUserFavorites] = useState(favorites || []);
-  const [userWatchlists, setUserWatchlists] = useState(watchlist || []);
+  const { watchlist, setWatchlist, favorites, setFavorites, loading } = useAppContext();
   const [date, setDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isShare, setIsShare] = useState(false);
@@ -38,9 +34,7 @@ const MovieBanner = ({ id, type = "movie", title = "harry" }) => {
       setMessage(response.message);
 
       const updatedFavorites = await getFavorites();
-      setUserFavorites(updatedFavorites);
       setFavorites(updatedFavorites);
-      setIsFavorite(isFavoriteMovieUser(date?.id, updatedFavorites));
     } catch (error) {
       setMessage(error);
     }
@@ -52,31 +46,22 @@ const MovieBanner = ({ id, type = "movie", title = "harry" }) => {
       setMessage(response.message);
 
       const updatedWatchlists = await getWatchlists();
-      setUserWatchlists(updatedWatchlists); 
-      setWatchlists(updatedWatchlists);
-      setIsWatchlist(isWatchlistMovieUser(date?.id, updatedWatchlists));
+      setWatchlist(updatedWatchlists);
     } catch (error) {
       setMessage(error);
     }
   };
 
   useEffect(() => {
-    setIsFavorite(isFavoriteMovieUser(date?.id, userFavorites));
-  }, [date?.id, userFavorites]);
-
-  useEffect(() => {
-    setIsWatchlist(isWatchlistMovieUser(date?.id, userWatchlists));
-    console.log(isWatchlist, userWatchlists, "watchlistssssssssssssssssssssssssssssssssss");
-  }, [date?.id, userWatchlists]);
-
-  useEffect(() => {
     if (id) {
       getMovieTvDate();
     }
   }, [id]);
+
   if (date === null) {
     return "loading...";
   }
+  
   return (
     <div
       style={{
@@ -132,7 +117,7 @@ const MovieBanner = ({ id, type = "movie", title = "harry" }) => {
             </button>
             {isOpen && <Triller id={id} onClose={() => setIsOpen(false)} />}
             <button onClick={handleAddToWatchlists}>
-              {isWatchlistMovieUser(date?.id, watchlist) ? "yesssss" : <SvgIcon iconName={"icon_save"} width={24} height={24} />}
+              {isWatchlistMovieUser(date?.id, watchlist) ? <SvgIcon iconName={"icon_save_selected"} width={24} height={24} /> : <SvgIcon iconName={"icon_save"} width={24} height={24} />}
             </button>
             <button onClick={handleAddToFavorites}>
               {isFavoriteMovieUser(date?.id, favorites) ? (
