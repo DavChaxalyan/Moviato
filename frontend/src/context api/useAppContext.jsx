@@ -31,6 +31,10 @@ export const AppProvider = ({ children }) => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    console.log(watchlist, favorites, "only dataaaaaaaaaaaaaaaaaaaaaa");
+  }, [watchlist, favorites]);
+
   return (
     <AppContext.Provider value={{ watchlist, setWatchlist, favorites, setFavorites, loading }}>
       {children}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./styles.module.css";
 import SvgIcon from "../SvgIcon/SvgIcon";
 import { POSTER_SIZE_500, IMAGE_BASE_URL } from "../../config/config";
@@ -16,7 +16,7 @@ const AllLists = () => {
 
   // Defined state to track active button and list view
   const id = useParams();
-  const [activeButton, setActiveButton] = useState(0);
+  const [activeButton, setActiveButton] = useState(+localStorage.getItem("whichList"));
   const [showList, setShowList] = useState(false);
 
   // Function to handle button click
@@ -24,6 +24,10 @@ const AllLists = () => {
     setActiveButton(index);
     setShowList(index === 2); // Set showList to true only for Lists button
   };
+
+  useEffect(() => {
+    setActiveButton(+localStorage.getItem("whichList"));
+  }, [localStorage.getItem("whichList")]);
 
   // Defined a variable to store movie data based on active button
   let categoryData;
@@ -94,7 +98,9 @@ const AllLists = () => {
         ) : (
           <div className={classes.emptyState}>
             <h2>Nothing found.</h2>
-            <p>It looks like you don't have any movies in this section yet. Add movies to your favorites or watchlist!</p>
+            <p>
+              It looks like you don't have any movies in this section yet. Add movies to your favorites or watchlist!
+            </p>
             <button onClick={() => navigate("/films")}>Search for movies.</button>
           </div>
         )}

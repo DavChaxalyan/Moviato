@@ -191,13 +191,13 @@ const HeaderForm = () => {
                 </div>
                 {isLoggedIn && (
                   <div className="profile-main-features">
-                    <div onClick={() => navigate("/list")}>
+                    <div onClick={() => {setIcon2((val) => !val); localStorage.setItem("whichList", 0); navigate("/list")}}>
                       <FaRegHeart />
                       <p style={{ fontSize: "14px" }} className="item-profile-row">
                         Favorites
                       </p>
                     </div>
-                    <div onClick={() => navigate("/list")}>
+                    <div onClick={() => {setIcon2((val) => !val); localStorage.setItem("whichList", 1); navigate("/list")}}>
                       <BiBookmark />
                       <p style={{ fontSize: "14px" }} className="item-profile-row">
                         Watchlist
